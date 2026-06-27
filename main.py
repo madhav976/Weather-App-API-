@@ -45,7 +45,7 @@ def weather_app():
     humidity = weather_data['current']['relative_humidity_2m']
     wind_speed = weather_data['current']['wind_speed_10m']
     with open("search_history.txt" , "a") as file :
-        file.write(f"""city : {city}
+        file.write(f"""\ncity : {city}
 temperature : {temp}°C
 humidity : {humidity}%
 wind speed : {wind_speed} m/s\n""")
