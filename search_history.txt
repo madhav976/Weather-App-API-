@@ -1,7 +1,0 @@
-city : delhi
-
-                temperature : 38.5°C
-
-                humidity : 34%
-
-                wind speed : 3.7 m/s
