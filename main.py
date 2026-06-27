@@ -1,9 +1,19 @@
 import requests
 
 def clear_history():
-    with open("search_history.txt", "w") as file:
-        file.write("")
-    print("Search history cleared.")
+    try :
+        with open("search_history.txt", "r") as file:
+            history = file.read()
+            if history == "":
+                print("No search history to clear.")
+                return
+            else :
+                with open("search_history.txt", "w") as file:
+                    file.write("")
+                print("Search history cleared.")
+    except FileNotFoundError:
+        print("No search history found.")
+        return
 
 def view_history():
    try :
@@ -35,7 +45,10 @@ def weather_app():
     humidity = weather_data['current']['relative_humidity_2m']
     wind_speed = weather_data['current']['wind_speed_10m']
     with open("search_history.txt" , "a") as file :
-        file.write(f"city : {city}\n")
+        file.write(f"""city : {city}\n
+                temperature : {temp}°C\n
+                humidity : {humidity}%\n
+                wind speed : {wind_speed} m/s\n""")
     print(f"The current temperature in {city} is {temp}°C.")
     print(f"The current humidity in {city} is {humidity}%.")
     print(f"The current wind speed in {city} is {wind_speed} m/s.")
