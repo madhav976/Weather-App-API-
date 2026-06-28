@@ -26,6 +26,7 @@ def view_history():
         print(history)
    except FileNotFoundError:
         print("No search history found.")
+        return
 
 def weather_app():
     print("Welcome to the Weather App!")
