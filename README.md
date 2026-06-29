@@ -1,189 +1,172 @@
-# Weather Dashboard
+# 🌤️ AI Weather Advisor
 
-A Python-based weather dashboard that fetches real-time weather information for any city using the Open-Meteo API.
-
-This project was built to practice:
-
-* Python fundamentals
-* Functions
-* APIs
-* HTTP requests
-* JSON parsing
-* File handling
-* Error handling
+A Python-based command-line weather application that fetches real-time weather data for any city using the **Open-Meteo API** and provides **AI-powered weather advice** using **Google Gemini 2.5 Flash Lite** through **OpenRouter**.
 
 ---
 
-## Features
+## ✨ Features
 
-* Search weather by city name
-* View current temperature
-* View humidity
-* View wind speed
-* Save search history
-* View search history
-* Clear search history
-* Menu-driven interface
-* Handles invalid city names
+* 🌍 Search weather by city name
+* 🌡️ View current temperature
+* 💧 View humidity
+* 💨 View wind speed
+* 🤖 Receive personalized AI weather advice
+* 📝 Store search history locally
+* 📖 View previous searches
+* 🗑️ Clear search history
 
 ---
 
-## Technologies Used
+## 🛠️ Tech Stack
 
 * Python
-* Requests Library
-* Open-Meteo Geocoding API
-* Open-Meteo Weather API
+* Requests
+* Open-Meteo API
+* OpenRouter API
+* Google Gemini 2.5 Flash Lite
+* python-dotenv
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
 ```text
-Weather Dashboard/
+AI-Weather-Advisor/
 │
 ├── main.py
+├── .env
 ├── search_history.txt
+├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## How It Works
+## ⚙️ Installation
 
-### 1. User enters a city name
+### 1. Clone the repository
 
-Example:
-
-```text
-Chandigarh
+```bash
+git clone https://github.com/yourusername/AI-Weather-Advisor.git
+cd AI-Weather-Advisor
 ```
 
-### 2. Geocoding API is called
+### 2. Install dependencies
 
-The city name is converted into:
+```bash
+pip install -r requirements.txt
+```
 
-* Latitude
-* Longitude
+### 3. Create a `.env` file
 
-These coordinates are required to fetch weather data.
+```env
+OPENROUTER_API_KEY=your_openrouter_api_key
+```
 
-### 3. Weather API is called
+---
 
-Using the coordinates, the application retrieves:
+## ▶️ Run the Project
+
+```bash
+python main.py
+```
+
+---
+
+## 📸 Example
+
+```text
+Welcome to the Weather App!
+
+Enter the name of a city: Delhi
+
+Current Temperature : 39°C
+Humidity : 58%
+Wind Speed : 3.6 m/s
+
+AI Advice:
+It's quite hot today. Stay hydrated, avoid prolonged outdoor activities during the afternoon, and wear lightweight clothing. If you need to go outside, don't forget sunscreen and take regular breaks in the shade.
+```
+
+---
+
+## 🤖 AI Weather Advice
+
+The application uses a custom system prompt to generate practical recommendations based on weather conditions.
+
+The assistant considers:
 
 * Temperature
 * Humidity
 * Wind Speed
+* Weather Conditions (when available)
+* UV Index (when available)
+* Air Quality (when available)
 
-### 4. Search history is stored
+Examples of advice include:
 
-Each successful search is saved to:
+* Staying hydrated during extreme heat
+* Wearing warm layers in cold weather
+* Carrying an umbrella when raining
+* Limiting outdoor activity during poor air quality
+* Taking precautions during thunderstorms or strong winds
+
+---
+
+## 📝 Search History
+
+Every weather search is automatically saved to:
 
 ```text
 search_history.txt
 ```
 
-### 5. User can manage history
+The application allows you to:
 
-Options include:
-
-```text
-1. Search Weather
-2. View Search History
-3. Clear Search History
-4. Exit
-```
+* View search history
+* Clear search history
 
 ---
 
-## Example Output
+## 📌 APIs Used
 
-```text
-Welcome to the Weather App!
+### Open-Meteo Geocoding API
 
-Enter the name of a city:
-Chandigarh
+Converts a city name into geographic coordinates.
 
-The current temperature in Chandigarh is 34°C.
-The current humidity in Chandigarh is 68%.
-The current wind speed in Chandigarh is 4.5 m/s.
-```
+### Open-Meteo Forecast API
 
----
+Provides current weather information.
 
-## Concepts Practiced
+### OpenRouter API
 
-### Functions
-
-```python
-weather_app()
-view_history()
-clear_history()
-```
-
-### API Requests
-
-```python
-requests.get()
-```
-
-### JSON Parsing
-
-```python
-response.json()
-```
-
-### File Handling
-
-```python
-open("search_history.txt", "a")
-```
-
-### Error Handling
-
-```python
-try:
-    ...
-except FileNotFoundError:
-    ...
-```
-
-### Loops and Menus
-
-The application uses a menu-based workflow that allows users to perform multiple actions without restarting the program.
+Connects the application to Google's Gemini model for AI-generated weather advice.
 
 ---
 
-## Future Improvements
+## 🚀 Future Improvements
 
-* 7-Day Weather Forecast
-* Weather Icons and Conditions
-* Search History with Date & Time
-* Save Temperature, Humidity, and Wind Data in History
-* Graphical User Interface (GUI)
-* Email or Notification Alerts
-* FastAPI Backend Version
-* Web Dashboard Version
-
----
-
-## Learning Outcome
-
-This project helped me understand:
-
-* Working with external APIs
-* Making HTTP requests
-* Parsing JSON responses
-* Building reusable functions
-* Handling user input
-* Storing data using files
-* Creating menu-driven Python applications
+* 7-day weather forecast
+* Weather condition icons
+* Air Quality Index (AQI)
+* UV Index support
+* Rain probability
+* Sunrise and sunset times
+* GUI using Tkinter or CustomTkinter
+* Web version using Flask or FastAPI
+* Unit selection (°C / °F)
+* Voice assistant support
 
 ---
 
-## Author
+## 📄 License
 
-Madhav Saini
+This project is open-source and available under the MIT License.
 
-Built as part of my Python learning journey before starting my BTech in Computer Science (AI/ML).
+---
+
+## 👨‍💻 Author
+
+**Madhav Saini**
+
+If you found this project useful, consider giving it a ⭐ on GitHub!
